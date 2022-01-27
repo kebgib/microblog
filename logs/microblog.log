@@ -1,1 +1,140 @@
+2022-01-27 11:50:36,680 ERROR: Exception on / [GET] [in c:\microblog2\venv\lib\site-packages\flask\app.py:1458]
+Traceback (most recent call last):
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
 
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 1857, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "c:\microblog2\app\routes.py", line 12, in before_request
+    if current_user.is_authenticated:
+  File "c:\microblog2\venv\lib\site-packages\werkzeug\local.py", line 432, in __get__
+    obj = instance._get_current_object()
+  File "c:\microblog2\venv\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
+    return self.__local()  # type: ignore
+  File "c:\microblog2\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "c:\microblog2\venv\lib\site-packages\flask_login\utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "c:\microblog2\venv\lib\site-packages\flask_login\login_manager.py", line 329, in _load_user
+    user = self._load_user_from_remember_cookie(cookie)
+  File "c:\microblog2\venv\lib\site-packages\flask_login\login_manager.py", line 372, in _load_user_from_remember_cookie
+    user = self._user_callback(user_id)
+  File "c:\microblog2\app\models.py", line 126, in load_user
+    return User.query.get(int(id))
+  File "<string>", line 2, in get
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\util\deprecations.py", line 401, in warned
+    return fn(*args, **kwargs)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\query.py", line 943, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\query.py", line 955, in _get_impl
+    execution_options=self._execution_options,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2896, in _get_impl
+    load_options=load_options,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 534, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1692, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 326, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1491, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (8,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2022-01-27 11:50:36,868 ERROR: Exception on /favicon.ico [GET] [in c:\microblog2\venv\lib\site-packages\flask\app.py:1458]
+Traceback (most recent call last):
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 1514, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\microblog2\venv\lib\site-packages\flask\app.py", line 1857, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "c:\microblog2\app\routes.py", line 12, in before_request
+    if current_user.is_authenticated:
+  File "c:\microblog2\venv\lib\site-packages\werkzeug\local.py", line 432, in __get__
+    obj = instance._get_current_object()
+  File "c:\microblog2\venv\lib\site-packages\werkzeug\local.py", line 554, in _get_current_object
+    return self.__local()  # type: ignore
+  File "c:\microblog2\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "c:\microblog2\venv\lib\site-packages\flask_login\utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "c:\microblog2\venv\lib\site-packages\flask_login\login_manager.py", line 329, in _load_user
+    user = self._load_user_from_remember_cookie(cookie)
+  File "c:\microblog2\venv\lib\site-packages\flask_login\login_manager.py", line 372, in _load_user_from_remember_cookie
+    user = self._user_callback(user_id)
+  File "c:\microblog2\app\models.py", line 126, in load_user
+    return User.query.get(int(id))
+  File "<string>", line 2, in get
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\util\deprecations.py", line 401, in warned
+    return fn(*args, **kwargs)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\query.py", line 943, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\query.py", line 955, in _get_impl
+    execution_options=self._execution_options,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2896, in _get_impl
+    load_options=load_options,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 534, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1692, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1614, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 326, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1491, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 2027, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1803, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\microblog2\venv\lib\site-packages\sqlalchemy\engine\default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (8,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
