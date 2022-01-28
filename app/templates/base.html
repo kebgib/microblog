@@ -1,34 +1,36 @@
+<!doctype html>
 <html>
-	<head>
-		{% if title %}
-		<title>{{ title }} - Microblog</title>
-		{% else %}
-		<title>Welcome to Microblog</title>
-		{% endif %}
-	</head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<body>
-		<div class="w3-bar w3-black w3-large">
-			<span class="w3-bar-item w3-centered">Microblog</span>
-			<span class="w3-bar-item">|</span>
-			<a href="{{ url_for('index') }}" class="w3-bar-item w3-button">Home</a>
-			{% if current_user.is_anonymous %}
-			<a href="{{ url_for('login') }}" class="w3-bar-item w3-button">Login</a>
-			{% else %}
-			<a href="{{ url_for('user', username=current_user.username) }}" class="w3-bar-item w3-button">Profile</a>
-			<a href="{{ url_for('logout') }}" class="w3-bar-item w3-button">Logout</a>
-			{% endif %}
-		</div>
-		{% with messages = get_flashed_messages() %}
-		{% if messages %}
-		<ul>
-			{% for message in messages %}
-			<li>{{ message }}</li>
-			{% endfor %}
-		</ul>
-		{% endif %}
-		{% endwith %}
-		{% block content %}{% endblock %}
-	</body>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Microblog</title>
+        {% else %}
+        <title>Welcome to Microblog</title>
+        {% endif %}
+    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+        <div class="w3-bar w3-black w3-large">
+            <span class="w3-bar-item w3-centered">Microblog</span>
+            <span class="w3-bar-item">|</span>
+            <a href="{{ url_for('index') }}" class="w3-bar-item w3-button">Home</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">Login</a>
+            {% else %}
+            <a href="{{ url_for('user', username=current_user.username) }}" class="w3-bar-item w3-button">Profile</a>
+            <a href="{{ url_for('logout') }}" class="w3-bar-item w3-button">Logout</a>
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+  </body>
 </html>
