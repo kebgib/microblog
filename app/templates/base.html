@@ -17,6 +17,7 @@
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">Login</a>
             {% else %}
+            <a href="{{ url_for('explore') }}" class="w3-bar-item w3-button">Explore</a>
             <a href="{{ url_for('user', username=current_user.username) }}" class="w3-bar-item w3-button">Profile</a>
             <a href="{{ url_for('logout') }}" class="w3-bar-item w3-button">Logout</a>
             {% endif %}
